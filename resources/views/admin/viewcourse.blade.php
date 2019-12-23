@@ -246,53 +246,68 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(); background-size: cover; background-position: center top;">
-      <!-- Mask -->
-      <span class="mask bg-gradient-default opacity-8"></span>
-      <!-- Header container -->
-      <div class="container-fluid d-flex align-items-center">
-        <div class="row">
-          <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello Jesse</h1>
-            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress youve made with your work and manage your projects or assigned tasks</p>
-            <a href="#!" class="btn btn-info">Edit profile</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Page content -->
-    <div class="container-fluid mt-7">
-      <div class="row">
-
-        <div class="col-xl-12 order-xl-1">
-          <div class="card bg-secondary shadow">
-            <div class="card-header bg-white border-0">
-              <div class="row align-items-center">
-                <div class="col-8">
-                  <h3 class="mb-0">MY COURSES</h3>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#!" class="btn btn-sm btn-primary"></a>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <form method="POST" action="{{ route('admin.addStudent.post') }}">
-                <h6 class="heading-small text-muted mb-4"></h6>
-                <div class="pl-lg-4">
-                  <div class="row">
 
 
-                    @if(count($courses) > 0)
-                        @foreach ($courses as $course)
+     @if(count($course) > 0)
+         @foreach ($course as $course)
+                        <!-- Header -->
+                        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url({{ URL::to('/'.$course->publicImage())}}); background-size: cover; background-position: center top;">
+                        <!-- Mask -->
+                        <span class="mask bg-gradient-default opacity-8"></span>
+                        <!-- Header container -->
+                        <div class="container-fluid d-flex align-items-center">
+                            <div class="row">
+                            <div class="col-lg-7 col-md-10">
+                                <h1 class="display-2 text-white">{{ $course->title }}</h1>
+                                <p class="text-white mt-0 mb-5">About : {{ $course->about }}</p>
+                                <a href="#!" class="btn btn-info">Update Course Info</a>
+                            </div>
+                            </div>
+                        </div>
+
+                        </div>
+        @endforeach
+    @endif
+
+
+                        <!-- Page content -->
+                        <div class="container-fluid mt-7">
+                        <div class="row">
+                            <div class="col-xl-12 order-xl-1">
+                            <div class="card bg-secondary shadow">
+                                <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                    <h3 class="mb-0">COURSE MATERIALS</h3>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                    <a href="#!" class="btn btn-sm btn-primary"></a>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="card-body">
+                                <form method="POST" action="{{ route('admin.addStudent.post') }}">
+                                    <h6 class="heading-small text-muted mb-4"></h6>
+                                    <div class="pl-lg-4">
+                                    <div class="row">
+        @if(count($materials) > 0)
+         @foreach ($materials as $material)
 
                         <div class="card text-right col-lg-4" style="width: 18rem;">
-                         <img src="{{ URL::to('/'.$course->publicImage())}}" class="card-img-top" alt="...">
+                            @if($material->isDocument())
+
+                            <img src="{{ URL::to('img/files.svg')}}" class="card-img-top" alt="...">
+                            @else
+                            <img src="{{ URL::to('img/video.svg')}}" class="card-img-top" alt="...">
+                            @endif
                          <div class="card-body">
-                           <p class="card-text">{{ $course->title }}</p>
-                           <a href="{{ route('admin.viewcourse.id', ['id' => $course->id]) }}" class="btn btn-primary">View Course</a>
-                           <a href="#" class="btn btn-danger">View Students</a>
+
+
+                           <h3 class="card-title">{{ $material->title }}</h3>
+                           <strong class="card-text">{{ $material->media }}</strong>
+                           <a href="{{URL::to('/'.$material->media()) }}" class="btn btn-primary">Download Material</a>
+                           <a href="#" class="btn btn-danger">View Online</a>
                          </div>
                        </div>
 
@@ -319,32 +334,6 @@
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="row align-items-center justify-content-xl-between">
-          <div class="col-xl-6">
-            <div class="copyright text-center text-xl-left text-muted">
-              &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
   <!--   Core   -->

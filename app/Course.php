@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Material;
 
 class Course extends Model
 {
@@ -23,5 +24,10 @@ class Course extends Model
     public function publicImage()
     {
         return 'uploads/' . $this->banner;
+    }
+
+    public function materials()
+    {
+        return $this->hasMany('App\Material');
     }
 }

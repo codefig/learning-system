@@ -176,4 +176,11 @@ class LoggedAdminController extends Controller
     {
         return view('admin.allCourses');
     }
+
+    public function getCourseById(Request $request, $id)
+    {
+        $course = Course::where('id', $id)->get();
+        $materials = Material::where('course_id', $id)->get();
+        return view('admin.viewcourse', compact('course', 'materials'));
+    }
 }
