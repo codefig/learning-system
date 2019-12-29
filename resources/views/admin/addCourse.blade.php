@@ -126,37 +126,45 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link " href=" ../index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " href="{{ route('admin.addcourse') }}"> <i class="ni ni-tv-2 text-primary"></i> Add Course
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
+            <a class="nav-link " href="{{ route('admin.addcontent') }}">
+              <i class="ni ni-planet text-blue"></i> Add Course Content
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+
+         <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.mycourses') }}">
+              <i class="ni ni-planet text-blue"></i> My Created Courses
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link  active " href="../examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
+                   <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.allcourses') }}">
+              <i class="ni ni-planet text-blue"></i> All  Courses
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link " href="../examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
+            <a class="nav-link " href="{{ route('admin.allstudent') }}">
+              <i class="ni ni-pin-3 text-orange"></i> View All Students
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
+
+             <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.graduants') }}">
+              <i class="ni ni-single-02 text-blue"></i> View Graduating List
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
+                    <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.applications') }}">
+              <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
+            </a>
+          </li>
+              <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.logout') }}">
+              <i class="ni ni-single-02 text-orange"></i> Logout
             </a>
           </li>
         </ul>
