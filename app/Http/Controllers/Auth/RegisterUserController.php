@@ -8,8 +8,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class RegisterUserController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +40,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:admin');
     }
 
     /**
@@ -73,20 +73,22 @@ class RegisterController extends Controller
     }
 
 
-    public function showAdminRegisterForm()
+    public function showUserRegisterForm()
     {
-        return view('admin.login', ['url' => 'admin']);
+        // return view('admin.login', ['url' => 'admin']);
+        return view('user.register', ['url' => 'user']);
     }
 
-    public function createAdmin(Request $request)
+    public function createUser(Request $request)
     {
-        $this->validator($request->all())->validate();
+        return "this is the signup function";
+        // $this->validator($request->all())->validate();
 
-        Admin::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
-        return redirect()->route('admin.login');
+        // User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password)
+        // ]);
+        // return redirect()->route('admin.login');
     }
 }

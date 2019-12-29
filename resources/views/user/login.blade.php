@@ -65,9 +65,9 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="../examples/login.html">
+              <a class="nav-link nav-link-icon" href="{{ route('user.register') }}">
                 <i class="ni ni-key-25"></i>
-                <span class="nav-link-inner--text">Login</span>
+                <span class="nav-link-inner--text">Register</span>
               </a>
             </li>
 

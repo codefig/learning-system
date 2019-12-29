@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'user'], function () {
-
+    Route::get('/register', 'Auth\RegisterUserController@showUserRegisterForm')->name('user.register');
+    Route::post('/register', 'Auth\RegisterUserController@createUser')->name('user.register.post');
     Route::get('/login', 'Auth\LoginController@showUserLoginForm')->name('user.login');
     Route::post('/login', 'Auth\LoginController@userLogin')->name('user.login.post');
     Route::get('/logout', 'LoggedUserController@logout')->name('user.logout');
