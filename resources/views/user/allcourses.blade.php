@@ -197,6 +197,7 @@
               <div class="row align-items-center">
                 <div class="col-8">
                   <h3 class="mb-0">MY COURSES</h3>
+
                 </div>
                 <div class="col-4 text-right">
                   <a href="#!" class="btn btn-sm btn-primary"></a>
@@ -218,7 +219,9 @@
                          <div class="card-body">
                            <p class="card-text"><strong>{{ $course->title }} and some other stuff not meant for the viewer</strong></p>
                            <a href="{{ route('user.courses.view', ['id' => $course->id]) }}" class="float-left btn btn-outline-primary">View Course</a>
-                           <a href="" class="btn btn-outline-danger float-right">Subscribe</a>
+                           <a href="{{ route('user.courses.subscribe', ['id' => $course->id]) }}" class="btn btn-outline-danger float-right">
+                               {{in_array($course->id, $subscribed_array) ? "Unsubscribe" : "Subscribe" }}
+                           </a>
                          </div>
                        </div>
 

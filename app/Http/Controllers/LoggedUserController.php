@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Material;
 use App\Submission;
+use App\Subscription;
 
 class LoggedUserController extends Controller
 {
@@ -102,13 +103,23 @@ class LoggedUserController extends Controller
 
     public function showAllCourses(Request $request)
     {
+        $user_subscriptions = Subscription::where('user_id', Auth::id())->get()->toArray();
+
+        $subscribed_array = array_map(function ($items) {
+            return $items['course_id'];
+        }, $user_subscriptions);
+
         $courses = Course::all();
-        return view('user.allcourses', compact('courses'));
+        return view('user.allcourses', compact('courses', 'subscribed_array'));
     }
 
     public function subscribeForCourse(Request $request, $id)
     {
-        return "subscribe for " . $id;
+        $subscription = new Subscription();
+        $subscription->user_id = Auth::id();
+        $subscription->course_id = $id;
+        $subscription->save();
+        return redirect()->back();
     }
 
     public function getCourseById(Request $request, $id)

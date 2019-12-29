@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Submission');
     }
+
+    public function subscriptions()
+    {
+        return $this->hasMany('App\Subscription');
+    }
 }
