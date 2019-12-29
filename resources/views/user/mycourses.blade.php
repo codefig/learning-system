@@ -457,7 +457,7 @@
         <!-- Navigation -->
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.logout') }}">
+            <a class="nav-link" href="{{ route('user.logout') }}">
               <i class="ni ni-spaceship"></i> LOGOUT
             </a>
           </li>
