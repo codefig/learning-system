@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Material;
 use App\Submission;
 
 class LoggedUserController extends Controller
@@ -96,5 +98,23 @@ class LoggedUserController extends Controller
 
         $request->session()->flash('success', 'Clearance application submitted successfully!');
         return redirect()->back();
+    }
+
+    public function showAllCourses(Request $request)
+    {
+        $courses = Course::all();
+        return view('user.allcourses', compact('courses'));
+    }
+
+    public function subscribeForCourse(Request $request, $id)
+    {
+        return "subscribe for " . $id;
+    }
+
+    public function getCourseById(Request $request, $id)
+    {
+        $course = Course::where('id', $id)->get();
+        $materials = Material::where('course_id', $id)->get();
+        return view('user.viewcourse', compact('course', 'materials'));
     }
 }

@@ -30,6 +30,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/apply', 'LoggedUserController@showApply')->name('user.apply');
     Route::post('/apply', 'LoggedUserController@postApply')->name('user.apply.post');
     Route::get('/graduating', 'LoggedUserController@showGraduating')->name('user.graduating');
+    Route::get('/courses/all', 'LoggedUserController@showAllcourses')->name('user.courses.all');
+    Route::get('/courses/subscribe/{id}', 'LoggedUserController@subscribeForCourse')->name('user.courses.subscribe');
+    Route::get('/course/{id}', 'LoggedUserController@getCourseById')->name('user.courses.view');
 });
 
 Route::group(['prefix' => 'admin'], function () {
