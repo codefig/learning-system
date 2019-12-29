@@ -109,6 +109,7 @@ class LoggedUserController extends Controller
             return $items['course_id'];
         }, $user_subscriptions);
 
+
         $courses = Course::all();
         return view('user.allcourses', compact('courses', 'subscribed_array'));
     }
@@ -127,5 +128,16 @@ class LoggedUserController extends Controller
         $course = Course::where('id', $id)->get();
         $materials = Material::where('course_id', $id)->get();
         return view('user.viewcourse', compact('course', 'materials'));
+    }
+
+    public function showMySubscribedCourses()
+    {
+        $user_subscriptions = Subscription::where('user_id', Auth::id())->get()->toArray();
+
+        $subscribed_array = array_map(function ($items) {
+            return $items['course_id'];
+        }, $user_subscriptions);
+        $courses = Course::all();
+        return view('user.mycourses', compact('courses', 'subscribed_array'));
     }
 }

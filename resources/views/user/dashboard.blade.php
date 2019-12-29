@@ -130,23 +130,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.apply') }}">
-              <i class="ni ni-planet text-blue"></i> Apply for Clearance
+            <a class="nav-link " href="{{ route('user.courses.all') }}">
+              <i class="ni ni-planet text-blue"></i> View All Courses
             </a>
           </li>
 
             <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.courses.subscribed') }}">
+              <i class="ni ni-planet text-yellow"></i> View Enrolled Courses
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link " href="{{ route('user.apply') }}">
-              <i class="ni ni-planet text-yellow"></i> View Graduating List
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Give Feedbacks
             </a>
           </li>
 
-
-
-
-                    <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="{{ route('user.apply') }}">
-              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Check Application Status
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Submit Assignments
             </a>
           </li>
 

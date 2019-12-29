@@ -33,6 +33,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/courses/all', 'LoggedUserController@showAllcourses')->name('user.courses.all');
     Route::get('/courses/subscribe/{id}', 'LoggedUserController@subscribeForCourse')->name('user.courses.subscribe');
     Route::get('/course/{id}', 'LoggedUserController@getCourseById')->name('user.courses.view');
+    Route::get('/courses/subscribed/', 'LoggedUserController@showMySubscribedCourses')->name('user.courses.subscribed');
 });
 
 Route::group(['prefix' => 'admin'], function () {
