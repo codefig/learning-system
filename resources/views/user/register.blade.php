@@ -135,7 +135,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" name="email" type="email">
+                    <input class="form-control" placeholder="Email/Matriculation Number" name="matric" type="email">
                   </div>
                 </div>
                 <div class="form-group">
@@ -153,15 +153,30 @@
                       <label class="custom-control-label" for="customCheckRegister">
                         <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
                       </label>
+
                     </div>
-                  </div>
                 </div>
+            </div>
+
+                   @if(count($errors) > 0)
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      <span class="sr-only">Close</span>
+                  </button>
+
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+                @endif
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary mt-4">Create account</button>
                   <input type="hidden" name="_token" value="{{ Session::token() }}" />
                 </div>
               </form>
             </div>
+
           </div>
         </div>
       </div>

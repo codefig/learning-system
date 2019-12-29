@@ -52,8 +52,8 @@ class RegisterUserController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'matric' => ['required', 'string', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -67,7 +67,7 @@ class RegisterUserController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'matric' => $data['matric'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -75,20 +75,20 @@ class RegisterUserController extends Controller
 
     public function showUserRegisterForm()
     {
-        // return view('admin.login', ['url' => 'admin']);
         return view('user.register', ['url' => 'user']);
     }
 
     public function createUser(Request $request)
     {
-        return "this is the signup function";
-        // $this->validator($request->all())->validate();
 
-        // User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password)
-        // ]);
-        // return redirect()->route('admin.login');
+
+        $this->validator($request->all())->validate();
+
+        User::create([
+            'name' => $request->name,
+            'matric' => $request->matric,
+            'password' => Hash::make($request->password)
+        ]);
+        return redirect()->route('user.login');
     }
 }
