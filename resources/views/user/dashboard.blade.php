@@ -219,11 +219,11 @@
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">
                 @if(count($user) > 0)
-                    {{ $user->matric }}
+                    {{ $user->name }}
                 @endif
             </h1>
-            <p class="text-white mt-0 mb-5">This is your Dashboard for filling up the clearance request and verirification </p>
-            <a href="{{ route('user.apply') }}" class="btn btn-info">Apply now </a>
+            <p class="text-white mt-0 mb-5">Welcome to the E-learning Platform</p>
+            <a href="{{ route('user.courses.all') }}" class="btn btn-info">Start Learning</a>
           </div>
         </div>
       </div>

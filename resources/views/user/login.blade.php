@@ -193,8 +193,6 @@
   <script src="{{ URL::to('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
-
-
 </body>
 
 </html>
