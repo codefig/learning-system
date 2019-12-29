@@ -124,39 +124,47 @@
           </div>
         </form>
         <!-- Navigation -->
-        <ul class="navbar-nav">
+         <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link " href=" ../index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " href="{{ route('admin.addcourse') }}"> <i class="ni ni-tv-2 text-primary"></i> Add Course
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
+            <a class="nav-link " href="{{ route('admin.addcontent') }}">
+              <i class="ni ni-planet text-blue"></i> Add Course Content
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+
+         <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.mycourses') }}">
+              <i class="ni ni-planet text-blue"></i> My Created Courses
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
+                   <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.allcourses') }}">
+              <i class="ni ni-planet text-blue"></i> All  Courses
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link  active " href="../examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
+            <a class="nav-link " href="{{ route('admin.allstudent') }}">
+              <i class="ni ni-pin-3 text-orange"></i> View All Students
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
+
+             <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.graduants') }}">
+              <i class="ni ni-single-02 text-blue"></i> View Graduating List
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
+                    <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.applications') }}">
+              <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
+            </a>
+          </li>
+              <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.logout') }}">
+              <i class="ni ni-single-02 text-orange"></i> Logout
             </a>
           </li>
         </ul>
@@ -165,23 +173,7 @@
         <!-- Heading -->
         <h6 class="navbar-heading text-muted">Documentation</h6>
         <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-              <i class="ni ni-spaceship"></i> Getting started
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-              <i class="ni ni-palette"></i> Foundation
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html">
-              <i class="ni ni-ui-04"></i> Components
-            </a>
-          </li>
-        </ul>
+
       </div>
     </div>
   </nav>
@@ -247,31 +239,7 @@
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
-          <!-- Card stats -->
-          <div class="row">
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                      <span class="h2 font-weight-bold mb-0">350,897</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                        <i class="fas fa-chart-bar"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
 
-          </div>
         </div>
       </div>
     </div>
@@ -281,24 +249,22 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3 class="mb-0">ALL STUDENT LIST</h3>
+              <h3 class="mb-0">STUDENT LIST</h3>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush" id="myTable">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Registration Number</th>
+                    <th scope="col">Registration Number / Email</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">Graduating</th>
                     <th scope="col">Completion</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
 
-                    @if(count($students)> 0)
-                        @foreach ($students as $student)
+                    @if(count($subscribed_students)> 0)
+                        @foreach ($subscribed_students as $student)
                              <tr>
                     <th scope="row">
                       <div class="media align-items-center">
@@ -311,19 +277,13 @@
                     <td>
                       {{ $student->name }}
                     </td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> {{ $student->department }}
-                      </span>
-                    </td>
+
                     <td>
                               <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> {{ ($student->is_graduating == 1) ? "Graduating": "Not Graduating" }}
+                        <i class="bg-warning"></i> {{ ($student->is_graduating == 1) ? "Completed": "Not Completed" }}
                       </span>
                     </td>
-                    <td>
-                        {{ ($student->is_approved == 1) ? "Approved" : "Unapproved" }}
-                    </td>
+
                     <td class="text-right">
                       <div class="dropdown">
                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

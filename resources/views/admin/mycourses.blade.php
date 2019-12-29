@@ -218,7 +218,7 @@
                          <div class="card-body">
                            <p class="card-text"><strong>{{ $course->title }} and some other stuff not meant for the viewer</strong></p>
                            <a href="{{ route('admin.viewcourse.id', ['id' => $course->id]) }}" class="float-left btn btn-outline-primary">View Course</a>
-                           <a href="#" class="btn btn-outline-danger float-right">View Students</a>
+                           <a href="{{ route('admin.courses.showstudents', ['id' => $course->id]) }}" class="btn btn-outline-danger float-right">View Students</a>
                          </div>
                        </div>
 

@@ -58,4 +58,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/course/{id}', 'LoggedAdminController@getCourseById')->name('admin.viewcourse.id');
     Route::get('/allCourses', 'LoggedAdminController@allCourses')->name('admin.allcourses');
     Route::get('/myCourses', 'LoggedAdminController@myCourses')->name('admin.mycourses');
+    Route::get('/course/{id}/students', 'LoggedAdminController@showStudents')->name('admin.courses.showstudents');
 });

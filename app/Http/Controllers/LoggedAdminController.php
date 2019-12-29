@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Department;
 use App\Material;
 use App\Submission;
+use App\Subscription;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -182,5 +183,24 @@ class LoggedAdminController extends Controller
         $course = Course::where('id', $id)->get();
         $materials = Material::where('course_id', $id)->get();
         return view('admin.viewcourse', compact('course', 'materials'));
+    }
+
+    public function showStudents(Request $request, $courseId)
+    {
+        //Get all students with subscritption and user id in the subscription table.
+        $subscriptions = Subscription::where('course_id', $courseId)->get()->toArray();
+        $subscriptions_array = array_map(function ($sub) {
+            return $sub['user_id'];
+        }, $subscriptions);
+
+        $students = User::all();
+        $subscribed_students = array();
+        foreach ($students as $student) {
+            if (in_array($student->id, $subscriptions_array)) {
+                array_push($subscribed_students, $student);
+            }
+        }
+        return view('admin.allstudents', compact('subscribed_students'));
+        return $subscribed_students;
     }
 }
