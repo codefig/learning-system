@@ -31,6 +31,7 @@
   <link href="{{ URL::to('js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ URL::to('css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
+  <link href="{{ URL::to('css/multiform.css') }}" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -130,30 +131,26 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.courses.all') }}">
-              <i class="ni ni-planet text-blue"></i> View All Courses
-            </a>
-          </li>
-
-            <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.courses.subscribed') }}">
-              <i class="ni ni-planet text-yellow"></i> View Enrolled Courses
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.feedback.get') }}">
-              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Give Feedbacks
-            </a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link " href="{{ route('user.apply') }}">
-              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Submit Assignments
+              <i class="ni ni-planet text-blue"></i> Apply for Clearance
             </a>
           </li>
 
             <li class="nav-item">
             <a class="nav-link " href="{{ route('user.apply') }}">
+              <i class="ni ni-planet text-yellow"></i> View Graduating List
+            </a>
+          </li>
+
+
+                    <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.apply') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Check Application Status
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.logout') }}">
               <i class="ni ni-planet text-blue"></i> Logout
             </a>
           </li>
@@ -161,6 +158,7 @@
         </ul>
         <!-- Divider -->
         <hr class="my-3">
+        <!-- Heading -->
 
 
       </div>
@@ -171,7 +169,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('user.dashboard') }}">STUDENT DASHBOARD</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('user.dashboard') }}">User Dashboard</a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -185,7 +183,7 @@
         </form>
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
-          <li class="nav-item dropdown">
+            <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
@@ -216,30 +214,132 @@
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
-      <div class="container-fluid d-flex align-items-center">
-        <div class="row">
-          <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">
-                @if(count($user) > 0)
-                    {{ $user->name }}
-                @endif
-            </h1>
-            <p class="text-white mt-0 mb-5">Welcome to the E-learning Platform</p>
-            <a href="{{ route('user.courses.all') }}" class="btn btn-info">Start Learning</a>
+
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My account</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+
+<section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                         @if(Auth::user()->submission)
+                        <div class="alert alert-success" role="alert">
+                      <h4 class="alert-heading"></h4>
+                      <strong>Thanks, You have already applied for Clearance & Verification, Please await your approval.</strong>
+                    </div>
+                        @else
+                              <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Student Feedback</a>
+                            </div>
+                        </nav>
+                        <form method="POST" action="{{ route('user.feedback.post') }}" enctype="multipart/form-data">
+                        <div class="tab-content" id="nav-tabContent">
+
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                                <div class="form-group">
+                                    <label>Select Course </label>
+                                    <select class="form-control" name="course_id" id="course_id">
+                                        @foreach($courses as $course)
+                                        @if(in_array($course->id, $subscribed_array))
+                                        <option value="{{ $course->id }}"> {{ $course->title }} </option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label> Feedback & Suggestions </label>
+
+                                    <textarea class="form-control" name="feedback" id="feedback"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="submit" value="SUBMIT FEEDBACK" class="btn btn-primary"/>
+                                    <input type="hidden" name="_token" value="{{ Session::token() }}" />
+                                </div>
+                            </div>
+
+                        </div>
+                        </form>
+                        @endif
+                    </div>
+                    <br/>
+                    @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                      <h4 class="alert-heading"></h4>
+                      <strong> {{ Session::get('success') }}</strong>
+                    </div>
+                    @endif
+                    <br/>
+                    @if(count($errors) > 0)
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      @foreach ($errors->all() as $err)
+                          <li>{{ $err }}</li>
+                      @endforeach
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </section>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
-    <!-- Page content -->
-
   </div>
   <!--   Core   -->
   <script src="{{ URL::to('js/plugins/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ URL::to('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
-  <script src="{{ URL::to('js/argon-dashboard.min.js?v=1.1.0') }}"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script src="{{ URL::to('js/multiform.js') }}"></script>
 
 </body>
 

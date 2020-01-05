@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Feedback;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -139,5 +140,31 @@ class LoggedUserController extends Controller
         }, $user_subscriptions);
         $courses = Course::all();
         return view('user.mycourses', compact('courses', 'subscribed_array'));
+    }
+
+    public function showFeedbackPage()
+    {
+        $user_subscriptions = Subscription::where('user_id', Auth::id())->get()->toArray();
+
+        $subscribed_array = array_map(function ($items) {
+            return $items['course_id'];
+        }, $user_subscriptions);
+        $courses = Course::all();
+        return view('user.feedback', compact('courses', 'subscribed_array'));
+    }
+
+    public function postFeedback(Request $request)
+    {
+
+        $this->validate($request, [
+            'course_id' => 'required',
+            'feedback' => 'required'
+        ]);
+        $feedback = new Feedback();
+        $feedback->course_id = $request->course_id;
+        $feedback->feedback = $request->feedback;
+        $feedback->save();
+        $request->session()->flash('success', "Feedback submitted successfully!");
+        return redirect()->back();
     }
 }
