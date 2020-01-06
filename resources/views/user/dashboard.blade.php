@@ -147,7 +147,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.apply') }}">
+            <a class="nav-link " href="{{ route('user.assignment.get') }}">
               <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Submit Assignments
             </a>
           </li>

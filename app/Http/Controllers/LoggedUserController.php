@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Assignment;
 use App\Course;
 use App\Feedback;
 use Illuminate\Auth\AuthenticationException;
@@ -165,6 +166,44 @@ class LoggedUserController extends Controller
         $feedback->feedback = $request->feedback;
         $feedback->save();
         $request->session()->flash('success', "Feedback submitted successfully!");
+        return redirect()->back();
+    }
+
+    public function showAssignmentPage()
+    {
+        $user_subscriptions = Subscription::where('user_id', Auth::id())->get()->toArray();
+
+        $subscribed_array = array_map(function ($items) {
+            return $items['course_id'];
+        }, $user_subscriptions);
+        $courses = Course::all();
+        return view('user.assignments', compact('courses', 'subscribed_array'));
+    }
+
+    public function postAssignment(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|max:10000|mimes:jpeg,png,jpg,zip,pdf,doc,docx',
+            'comments' => 'required',
+            'course_id' => 'required',
+        ], [
+            'file.required' => 'Assignment material not uploaded',
+            'lib_file.max' => "The Library clearance file shouldn't exceed 2MB"
+        ]);
+
+
+        $assignment_file = 'assignment-' . time() . '.' . $request->file->getClientOriginalExtension();
+        request()->file->move(public_path('uploads/assignments'), $assignment_file);
+
+
+        $assignment = new Assignment();
+        $assignment->user_id = Auth::id();
+        $assignment->course_id = $request->course_id;
+        $assignment->file  = $assignment_file;
+        $assignment->comments = $request->comments;
+        $assignment->has_file = 1;
+        $assignment->save();
+        $request->session()->flash('success', "Assignment submitted successfully");
         return redirect()->back();
     }
 }

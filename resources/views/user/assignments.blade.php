@@ -246,20 +246,37 @@
                         @else
                               <nav>
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Student Feedback</a>
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Assignments & Course work</a>
                             </div>
                         </nav>
-                        <form method="POST" action="{{ route('user.apply.post') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('user.assignment.post') }}" enctype="multipart/form-data">
                         <div class="tab-content" id="nav-tabContent">
 
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
                                 <div class="form-group">
-                                    <label>Upload Library Clearance form </label>
-                                    <input class="form-control" type="file" name="lib_file" id="lib_file" />
+                                    <label>Select Course </label>
+                                    <select class="form-control" name="course_id" id="course_id">
+                                        @foreach($courses as $course)
+                                        @if(in_array($course->id, $subscribed_array))
+                                        <option value="{{ $course->id }}"> {{ $course->title }} </option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label> Upload File </label>
+                                    <input class="form-control" type="file" accept=".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" name="file" id="file" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label> Feedback </label>
+                                    <label> Comments </label>
+                                    <input type="text" name="comments" class="form-control" id="comments"/>
+                                </div>
+
+                                    <div class="form-group">
+                                    <input type="submit" value="SUBMIT ASSIGNMENT" class="btn btn-primary"/>
+                                    <input type="hidden" name="_token" value="{{ Session::token() }}" />
                                 </div>
                             </div>
 

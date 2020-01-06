@@ -36,6 +36,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/courses/subscribed/', 'LoggedUserController@showMySubscribedCourses')->name('user.courses.subscribed');
     Route::get('/feedback', 'LoggedUserController@showFeedbackPage')->name('user.feedback.get');
     Route::post('/feedback', 'LoggedUserController@postFeedback')->name('user.feedback.post');
+    Route::get('/assignment', 'LoggedUserController@showAssignmentPage')->name('user.assignment.get');
+    Route::post('/assignment', 'LoggedUserController@postAssignment')->name('user.assignment.post');
 });
 
 Route::group(['prefix' => 'admin'], function () {
