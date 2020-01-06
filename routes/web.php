@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'student'], function () {
     Route::get('/register', 'Auth\RegisterUserController@showUserRegisterForm')->name('user.register');
     Route::post('/register', 'Auth\RegisterUserController@createUser')->name('user.register.post');
     Route::get('/login', 'Auth\LoginController@showUserLoginForm')->name('user.login');
@@ -40,7 +40,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/assignment', 'LoggedUserController@postAssignment')->name('user.assignment.post');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'lecturer'], function () {
 
     Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\LoginController@adminLogin')->name('admin.login.post');
