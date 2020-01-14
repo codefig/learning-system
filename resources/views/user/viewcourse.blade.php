@@ -124,41 +124,40 @@
           </div>
         </form>
         <!-- Navigation -->
-        <ul class="navbar-nav">
+ <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link " href=" ../index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " href="{{ route('user.dashboard') }}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
+            <a class="nav-link " href="{{ route('user.courses.all') }}">
+              <i class="ni ni-planet text-blue"></i> View All Courses
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.courses.subscribed') }}">
+              <i class="ni ni-planet text-yellow"></i> View Enrolled Courses
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+            <a class="nav-link " href="{{ route('user.feedback.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Give Feedbacks
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link  active " href="../examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
+            <a class="nav-link " href="{{ route('user.assignment.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Submit Assignments
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
+
+            <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.apply') }}">
+              <i class="ni ni-planet text-blue"></i> Logout
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
-            </a>
-          </li>
+
         </ul>
         <!-- Divider -->
         <hr class="my-3">
