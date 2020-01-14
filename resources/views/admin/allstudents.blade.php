@@ -140,11 +140,7 @@
               <i class="ni ni-planet text-blue"></i> My Created Courses
             </a>
           </li>
-                   <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.allcourses') }}">
-              <i class="ni ni-planet text-blue"></i> All  Courses
-            </a>
-          </li>
+
 
           <li class="nav-item">
             <a class="nav-link " href="{{ route('admin.allstudent') }}">
@@ -152,11 +148,7 @@
             </a>
           </li>
 
-             <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.graduants') }}">
-              <i class="ni ni-single-02 text-blue"></i> View Graduating List
-            </a>
-          </li>
+
                     <li class="nav-item">
             <a class="nav-link " href="{{ route('admin.applications') }}">
               <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
@@ -257,14 +249,13 @@
                   <tr>
                     <th scope="col">Registration Number / Email</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Completion</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
 
-                    @if(count($subscribed_students)> 0)
-                        @foreach ($subscribed_students as $student)
+                    @if(count($students)> 0)
+                        @foreach ($students as $student)
                              <tr>
                     <th scope="row">
                       <div class="media align-items-center">
@@ -276,12 +267,6 @@
                     </th>
                     <td>
                       {{ $student->name }}
-                    </td>
-
-                    <td>
-                              <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> {{ ($student->is_graduating == 1) ? "Completed": "Not Completed" }}
-                      </span>
                     </td>
 
                     <td class="text-right">

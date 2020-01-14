@@ -137,11 +137,7 @@
             </a>
           </li>
 
-            <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.graduating') }}">
-              <i class="ni ni-planet text-yellow"></i> View Graduating List
-            </a>
-          </li>
+
 
 
                     <li class="nav-item">

@@ -84,13 +84,13 @@
                         <li><a href="about-us.html">About Us</a></li>
                         <li><a href="course.html">Course</a></li>
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="">Lecturer Login</a></li>
                         <li><a href="elements.html">Elements</a></li>
                       </ul>
                     </li>
 
                     <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ route('admin.login') }}">Lecturer Login</a></li>
                   </ul>
                 </div>
                 <!-- Nav End -->

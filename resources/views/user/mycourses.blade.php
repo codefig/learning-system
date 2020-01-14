@@ -152,11 +152,7 @@
             </a>
           </li>
 
-             <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.graduants') }}">
-              <i class="ni ni-single-02 text-blue"></i> View Graduating List
-            </a>
-          </li>
+
                     <li class="nav-item">
             <a class="nav-link " href="{{ route('admin.applications') }}">
               <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
@@ -422,7 +418,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{{ route('user.courses.all') }}">
-              <i class="ni ni-planet text-blue"></i> View All Courses
+              <i class="ni ni-planet text-blue"></i> View
             </a>
           </li>
 
