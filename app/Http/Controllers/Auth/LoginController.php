@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Admin;
 use Illuminate\Support\Facades\Input;
 
 class LoginController extends Controller
@@ -70,6 +72,22 @@ class LoginController extends Controller
     public function showAdminRegisterForm()
     {
         return view('admin.register');
+    }
+
+    public function postAdminRegisterForm(Request $request){
+        // return $request->all();
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $admin = new Admin();
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->password= Hash::make($request->password);
+        $admin->save();
+        return redirect()->route('admin.login');
     }
 
     public function adminLogin(Request $request)

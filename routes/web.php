@@ -44,6 +44,7 @@ Route::group(['prefix' => 'lecturer'], function () {
 
     Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
     Route::get('/register', 'Auth\LoginController@showAdminRegisterForm')->name('admin.register');
+    Route::post('/register', 'Auth\LoginController@postAdminRegisterForm')->name('admin.register.post');
     Route::post('/login', 'Auth\LoginController@adminLogin')->name('admin.login.post');
     Route::get('/logout', 'LoggedAdminController@logout')->name('admin.logout');
     Route::get('/dashboard', 'LoggedAdminController@showDashboard')->name('admin.dashboard');
@@ -54,7 +55,6 @@ Route::group(['prefix' => 'lecturer'], function () {
     Route::get('/graduating', 'LoggedAdminController@showGraduatingList')->name('admin.graduants');
     Route::get('/allStudent', 'LoggedAdminController@showAllStudents')->name('admin.allstudent');
     Route::get('/applications', 'LoggedAdminController@showApplications')->name('admin.applications');
-
     Route::get('/addCourse', 'LoggedAdminController@addCourse')->name('admin.addcourse');
     Route::post('/addCourse', 'LoggedAdminController@postAddCourse')->name('admin.addcourse.post');
     Route::get('/addContent', 'LoggedAdminController@addContent')->name('admin.addcontent');

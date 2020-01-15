@@ -32,6 +32,12 @@
   <link href="{{ URL::to('js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ URL::to('css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
+
+  <style>
+      .bg-gradient-primary {
+    background: linear-gradient(87deg, #5e72e4 0, #2dce89 100%) !important;
+}
+  </style>
 </head>
 
 <body class="bg-default">
@@ -105,7 +111,7 @@
               <div class="text-center text-muted mb-4">
                 Sign up to become a Lecturer
               </div>
-              <form role="form" action="{{ route('user.register.post') }}" method="POST">
+              <form role="form" action="{{ route('admin.register.post') }}" method="POST">
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
@@ -119,7 +125,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email/Matriculation Number" name="matric" type="email">
+                    <input class="form-control" placeholder="Email" name="email" type="email">
                   </div>
                 </div>
                 <div class="form-group">

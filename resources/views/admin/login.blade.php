@@ -31,6 +31,11 @@
   <link href="{{ URL::to('js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ URL::to('css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
+    <style>
+      .bg-gradient-primary {
+    background: linear-gradient(87deg, #5e72e4 0, #2dce89 100%) !important;
+}
+  </style>
 </head>
 
 <body class="bg-default">

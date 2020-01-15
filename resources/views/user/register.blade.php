@@ -135,7 +135,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email/Matriculation Number" name="matric" type="email">
+                    <input class="form-control" placeholder="Email/Matriculation Number" name="matric">
                   </div>
                 </div>
                 <div class="form-group">
