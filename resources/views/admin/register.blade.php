@@ -16,6 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +40,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="../index.html">
-          <img src="{{ URL::to('img/oau.png') }}" />
+          <img src="../assets/img/brand/white.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -50,7 +51,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="../index.html">
-
+                  <img src="../assets/img/brand/blue.png">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -65,9 +66,9 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="{{route('admin.register')}}">
+              <a class="nav-link nav-link-icon" href="{{route('admin.login')}}">
                 <i class="ni ni-key-25"></i>
-                <span class="nav-link-inner--text">Register</span>
+                <span class="nav-link-inner--text">Login</span>
               </a>
             </li>
 
@@ -81,8 +82,8 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Welcome Lecturer!</h1>
-              <p class="text-lead text-light"> Lecturer Login  </p>
+              <h1 class="text-white">Become a Tutor!</h1>
+              <p class="text-lead text-light">Register with us to create and teach awesome contents.</p>
             </div>
           </div>
         </div>
@@ -95,21 +96,30 @@
     </div>
     <!-- Page content -->
     <div class="container mt--8 pb-5">
+      <!-- Table -->
       <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
+        <div class="col-lg-6 col-md-8">
           <div class="card bg-secondary shadow border-0">
 
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Or sign in with credentials</small>
+                Sign up to become a Lecturer
               </div>
-              <form role="form" method="POST" action="{{ route('admin.login.post') }}">
-                <div class="form-group mb-3">
-                  <div class="input-group input-group-alternative">
+              <form role="form" action="{{ route('user.register.post') }}" method="POST">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Name"  name="name" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" name="email" type="email">
+                    <input class="form-control" placeholder="Email/Matriculation Number" name="matric" type="email">
                   </div>
                 </div>
                 <div class="form-group">
@@ -120,14 +130,17 @@
                     <input class="form-control" placeholder="Password" name="password" type="password">
                   </div>
                 </div>
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                      <label class="custom-control-label" for="customCheckRegister">
+                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                      </label>
 
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Sign in</button>
-                  <input type="hidden" name="_token" value="{{ Session::token() }}" />
+                    </div>
                 </div>
-              </form>
             </div>
-
 
                    @if(count($errors) > 0)
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -141,48 +154,52 @@
                     @endforeach
                 </div>
                 @endif
-          </div>
-          <div class="row mt-3">
-
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
+                  <input type="hidden" name="_token" value="{{ Session::token() }}" />
+                </div>
+              </form>
+            </div>
 
           </div>
         </div>
       </div>
     </div>
-    <footer class="py-5">
-      <div class="container">
-        <div class="row align-items-center justify-content-xl-between">
-          <div class="col-xl-6">
-            <div class="copyright text-center text-xl-left text-muted">
-              © 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-              </li>
-            </ul>
+  </div>
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
           </div>
         </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </footer>
+    </div>
+  </footer>
   </div>
+  <!--   Core   -->
 <script src="{{ URL::to('js/plugins/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ URL::to('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-
-  <script src="{{ URL::to('js/argon-dashboard.min.js?v=1.1.0') }}"></script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-
+  <!--   Optional JS   -->
+  <!--   Argon JS   -->
 </body>
 
 </html>

@@ -66,6 +66,12 @@ class LoginController extends Controller
         return view('admin.login', ['url' => 'admin']);
     }
 
+
+    public function showAdminRegisterForm()
+    {
+        return view('admin.register');
+    }
+
     public function adminLogin(Request $request)
     {
 

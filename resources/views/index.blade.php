@@ -78,18 +78,22 @@
                   <ul>
                     <li><a href="index.html">Home</a></li>
                     <li>
-                      <a href="#">Pages</a>
+                      <a href="#">Lecturer</a>
                       <ul class="dropdown">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="course.html">Course</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="">Lecturer Login</a></li>
-                        <li><a href="elements.html">Elements</a></li>
+                        <li><a href="{{route('admin.register')}}">Signup</a></li>
+                        <li><a href="{{route('admin.login')}}">Login</a></li>
                       </ul>
                     </li>
 
-                    <li><a href="about-us.html">About Us</a></li>
+                           <li>
+                      <a href="#">Student</a>
+                      <ul class="dropdown">
+                        <li><a href="{{route('user.register')}}">Signup</a></li>
+                        <li><a href="{{route('user.login')}}">Login</a></li>
+                      </ul>
+                    </li>
+
+
                     <li><a href="{{ route('admin.login') }}">Lecturer Login</a></li>
                   </ul>
                 </div>

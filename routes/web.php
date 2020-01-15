@@ -43,6 +43,7 @@ Route::group(['prefix' => 'student'], function () {
 Route::group(['prefix' => 'lecturer'], function () {
 
     Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+    Route::get('/register', 'Auth\LoginController@showAdminRegisterForm')->name('admin.register');
     Route::post('/login', 'Auth\LoginController@adminLogin')->name('admin.login.post');
     Route::get('/logout', 'LoggedAdminController@logout')->name('admin.logout');
     Route::get('/dashboard', 'LoggedAdminController@showDashboard')->name('admin.dashboard');
