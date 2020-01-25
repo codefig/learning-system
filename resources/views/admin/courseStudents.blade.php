@@ -254,8 +254,8 @@
                 </thead>
                 <tbody>
 
-                    @if(count($students)> 0)
-                        @foreach ($students as $student)
+                    @if(count($subscribed_students)> 0)
+                        @foreach ($subscribed_students as $student)
                              <tr>
                     <th scope="row">
                       <div class="media align-items-center">
@@ -275,6 +275,7 @@
                           <i class="fas fa-ellipsis-v"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                            <a class="dropdown-item" href="{{route('admin.student.grade', ['studentId' => $student->id, 'courseId' => $courseId])}}">Grade Student</a>
                         </div>
                       </div>
                     </td>

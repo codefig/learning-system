@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\Department;
+use App\Grade;
 use App\Material;
 use App\Submission;
 use App\Subscription;
@@ -200,7 +201,37 @@ class LoggedAdminController extends Controller
                 array_push($subscribed_students, $student);
             }
         }
-        return view('admin.allstudents', compact('subscribed_students'));
-        return $subscribed_students;
+        return view('admin.courseStudents', compact('subscribed_students', 'courseId'));
+        // return $subscribed_students;
+    }
+
+    public function gradeStudent(Request $request, $studentId)
+    {
+        $mycourse = Course::where('id', $request->courseId)->get();
+        $student = User::where('id', $studentId)->get();
+        // return $student;
+        return view('admin.addgrade', compact('mycourse', 'studentId', 'student'));
+    }
+
+    public function postGradeStudent(Request $request)
+    {
+
+        // return $request->all();
+
+        $this->validate($request, [
+            'test_score' => 'required|numeric',
+            'exam_score' => 'required|numeric',
+            'total_score' => 'required|numeric',
+            'grade' => 'required',
+            'course_id' => 'required',
+            'student_id' => 'required|unique:grades,student_id,NULL,id,course_id,' . $request->course_id,
+        ], [
+            'student_id.unique' => 'Sorry, Result added for this student in this course already',
+        ]);
+        $grade = new Grade($request->all());
+        $grade->author_id = Auth::id();
+        $grade->save();
+        $request->session()->flash('success', "Grade Added Successfully");
+        return redirect()->back();
     }
 }

@@ -64,4 +64,6 @@ Route::group(['prefix' => 'lecturer'], function () {
     Route::get('/allCourses', 'LoggedAdminController@allCourses')->name('admin.allcourses');
     Route::get('/myCourses', 'LoggedAdminController@myCourses')->name('admin.mycourses');
     Route::get('/course/{id}/students', 'LoggedAdminController@showStudents')->name('admin.courses.showstudents');
+    Route::get('/grade/{studentid}', 'LoggedAdminController@gradeStudent')->name('admin.student.grade');
+    Route::post('/grade/student', 'LoggedAdminController@postGradeStudent')->name('admin.student.grade.post');
 });
