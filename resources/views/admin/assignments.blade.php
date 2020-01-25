@@ -15,7 +15,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,14 +30,7 @@
   <link href="{{ URL::to('js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ URL::to('css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
-
-  <style>
-      .ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-  </style>
+  <link href="{{ URL::to('css/table.css') }}" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -50,7 +42,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="../index.html">
-        <img src="{{ URL::to('img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+        <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -69,7 +61,7 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="{{ URL::to('img/theme/team-1-800x800.jpg') }}
+                <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg
 ">
               </span>
             </div>
@@ -95,7 +87,7 @@
               <span>Support</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="{{ route('user.logout') }}" class="dropdown-item">
+            <a href="#!" class="dropdown-item">
               <i class="ni ni-user-run"></i>
               <span>Logout</span>
             </a>
@@ -109,7 +101,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="../index.html">
-                <img src="{{ URL::to('img/brand/blue.png') }}">
+                <img src="../assets/img/brand/blue.png">
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -132,39 +124,39 @@
           </div>
         </form>
         <!-- Navigation -->
-        <ul class="navbar-nav">
+         <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link " href=" ../index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " href="{{ route('admin.addcourse') }}"> <i class="ni ni-tv-2 text-primary"></i> Add Course
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
+            <a class="nav-link " href="{{ route('admin.addcontent') }}">
+              <i class="ni ni-planet text-blue"></i> Add Course Content
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+
+         <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.mycourses') }}">
+              <i class="ni ni-planet text-blue"></i> My Created Courses
             </a>
           </li>
+
+
           <li class="nav-item">
-            <a class="nav-link  active " href="../examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
+            <a class="nav-link " href="{{ route('admin.allstudent') }}">
+              <i class="ni ni-pin-3 text-orange"></i> View All Students
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
+
+
+                    <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.applications') }}">
+              <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
+              <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.logout') }}">
+              <i class="ni ni-single-02 text-orange"></i> Logout
             </a>
           </li>
         </ul>
@@ -173,23 +165,7 @@
         <!-- Heading -->
         <h6 class="navbar-heading text-muted">Documentation</h6>
         <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-              <i class="ni ni-spaceship"></i> Getting started
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-              <i class="ni ni-palette"></i> Foundation
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html">
-              <i class="ni ni-ui-04"></i> Components
-            </a>
-          </li>
-        </ul>
+
       </div>
     </div>
   </nav>
@@ -198,7 +174,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">User Profile</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Tables</a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -215,11 +191,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="{{ URL::to('img/theme/team-4-800x800.jpg') }}">
-                </span>
+
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
                 </div>
               </div>
             </a>
@@ -244,7 +217,7 @@
                 <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="{{ route('user.logout') }}" class="dropdown-item">
+              <a href="#!" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
@@ -254,106 +227,135 @@
       </div>
     </nav>
     <!-- End Navbar -->
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <div class="header-body">
 
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mt--7">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Submitted Assignments </h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush" id="myTable">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Submitted File</th>
+                    <th scope="col">Comments</th>
 
-     @if(count($course) > 0)
-         @foreach ($course as $course)
-                        <!-- Header -->
-                        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url({{ URL::to('/'.$course->publicImage())}}); background-size: cover; background-position: center top;">
-                        <!-- Mask -->
-                        <span class="mask bg-gradient-default opacity-8"></span>
-                        <!-- Header container -->
-                        <div class="container-fluid d-flex align-items-center">
-                            <div class="row">
-                            <div class="col-lg-7 col-md-10">
-                                <h1 class="display-2 text-white">{{ $course->title }}</h1>
-                                <p class="text-white mt-0 mb-5">About : {{ $course->about }}</p>
-                                <a href="#!" class="btn btn-info">Update Course Info</a>
-                            </div>
-                            </div>
+                  </tr>
+                </thead>
+                <tbody>
+
+                    @if(count($assignments)> 0)
+                        @foreach ($assignments as $ass)
+                             <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">{{ $ass->student->name }}</span>
                         </div>
+                      </div>
+                    </th>
+                    <td>
+                      <a href="{{URL::to('/'.$ass->file_link()) }}">{{ $ass->file }} </a>
+                    </td>
 
-                        </div>
-        @endforeach
-    @endif
-
-
-                        <!-- Page content -->
-                        <div class="container-fluid mt-7">
-                        <div class="row">
-                            <div class="col-xl-12 order-xl-1">
-                            <div class="card bg-secondary shadow">
-                                <div class="card-header bg-white border-0">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                    <h3 class="mb-0">COURSE MATERIALS</h3>
-                                    </div>
-                                    <div class="col-4 text-right">
-                                    <a href="{{route('admin.assignments.view', ['course_id' => $course->id])}}" class="btn btn-sm btn-primary">View Assignment Submissions</a>
-                                    </div>
-                                </div>
-                                </div>
-
-                                <div class="card-body">
-                                <form method="POST" action="{{ route('admin.addStudent.post') }}">
-                                    <h6 class="heading-small text-muted mb-4"></h6>
-                                    <div class="pl-lg-4">
-                                    <div class="row">
-        @if(count($materials) > 0)
-         @foreach ($materials as $material)
-
-                        <div class="card text-center col-lg-4" style="width: 18rem;">
-                            @if($material->isDocument())
-
-                            <img src="{{ URL::to('img/files.svg')}}"  height="240" class="card-img-top" alt="...">
-                            @else
-                            <video height="240" controls>
-                            <source src="{{URL::to('/'.$material->media()) }}" type="video/mp4">
-                            <source src="{{URL::to('/'.$material->media()) }}" type="video/ogg">
-                            </video>
-
-                            @endif
-                         <div class="card-body">
-                           <h3 class="card-title">{{ $material->title }}</h3>
-                           <strong class="card-text">{{ $material->shortname() }}</strong>
-                           <a href="{{URL::to('/'.$material->media()) }}" class="btn btn-primary">Download</a>
-                           <a href="#" class="btn btn-danger">View Online</a>
-                         </div>
-                       </div>
-
+                    <td>
+                      <a href="{{URL::to('/'.$ass->file_link()) }}">{{ $ass->file }} </a>
+                    </td>
+                  </tr>
                         @endforeach
                     @endif
 
 
-
-                  @if (count($errors) > 0)
-                <div class="alert alert-danger" role="alert">
-                    @foreach ($errors->all() as $err)
-                            <li> {{ $err }}</li>
-                    @endforeach
-                </div>
-                  @endif
-                </div>
-                <hr class="my-4" />
-              </form>
-
-              @if(Session::has('success'))
-                <p class="alert alert-primary">{{ Session::get('success') }} </p>
-              @endif
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer py-4">
+              <nav aria-label="...">
+                <ul class="pagination justify-content-end mb-0">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">
+                      <i class="fas fa-angle-left"></i>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="fas fa-angle-right"></i>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
-  <!--   Core   -->
-  <script src="{{ URL::to('js/plugins/jquery/dist/jquery.min.js') }}"></script>
-  <script src="{{ URL::to('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-  <!--   Optional JS   -->
-  <!--   Argon JS   -->
-  <script src="{{ URL::to('js/argon-dashboard.min.js?v=1.1.0') }}"></script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{{ URL::to('js/jquery/jquery-2.2.4.min.js')}}"></script>
+    <!-- Popper js -->
+    <script src="{{ URL::to('js/bootstrap/popper.min.js')}}"></script>
+    <!-- Bootstrap js -->
+    <script src="{{ URL::to('js/bootstrap/bootstrap.min.js')}}"></script>
+    <!-- All Plugins js -->
+    <script src="{{ URL::to('js/plugins/plugins.js')}}"></script>
+    <!-- Active js -->
+    <script src="{{ URL::to('js/active.js')}}"></script>
+    <script src="{{ URL::to('js/table.js')}}"></script>
 
+    <script>
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
 </body>
 
 </html>

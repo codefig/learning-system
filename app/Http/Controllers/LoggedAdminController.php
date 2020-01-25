@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Assignment;
 use App\Course;
 use Illuminate\Http\Request;
 
@@ -233,5 +234,12 @@ class LoggedAdminController extends Controller
         $grade->save();
         $request->session()->flash('success', "Grade Added Successfully");
         return redirect()->back();
+    }
+
+    public function viewSubmissions(Request $request, $courseId)
+    {
+        $assignments = Assignment::where('id', 1)->get();
+        return view('admin.assignments', compact('assignments'));
+        // return "this iare th esubmissions" . $courseId;
     }
 }
