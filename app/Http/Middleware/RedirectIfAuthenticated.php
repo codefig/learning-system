@@ -19,11 +19,11 @@ class RedirectIfAuthenticated
     {
 
         if ($guard == "admin" && Auth::guard($guard)->check()) {
-            return redirect('/admin/dashboard');
+            return redirect('/lecturer/dashboard');
         }
 
         if ($guard == 'web' && (Auth::guard($guard)->check())) {
-            return redirect('/user/dashboard');
+            return redirect('/student/dashboard');
         }
 
         return $next($request);

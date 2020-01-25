@@ -153,7 +153,7 @@ class LoggedAdminController extends Controller
             'title' => 'required',
             'course_id' => "required|integer",
             'info' => 'required',
-            'media' => 'required|mimes:jpeg,png,jpg,docx,pdf,mp4,zip|max:5096'
+            'media' => 'required|mimes:jpeg,png,jpg,docx,pdf,mp4,zip|max:51200'
         ]);
 
         $material = new Material($request->all());
