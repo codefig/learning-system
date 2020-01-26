@@ -125,7 +125,7 @@
           </div>
         </form>
         <!-- Navigation -->
-      <ul class="navbar-nav">
+  <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
           <a class=" nav-link " href="{{ route('user.dashboard') }}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
@@ -150,6 +150,12 @@
           <li class="nav-item">
             <a class="nav-link " href="{{ route('user.assignment.get') }}">
               <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Submit Assignments
+            </a>
+          </li>
+
+             <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.results.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> View Results
             </a>
           </li>
 
