@@ -16,4 +16,14 @@ class Grade extends Model
         'total_score',
         'grade'
     ];
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
+
+    public function courseName()
+    {
+        return $this->course()->first()->title;
+    }
 }

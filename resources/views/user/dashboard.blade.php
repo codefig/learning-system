@@ -152,6 +152,12 @@
             </a>
           </li>
 
+             <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.results.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> View Results
+            </a>
+          </li>
+
             <li class="nav-item">
             <a class="nav-link " href="{{ route('user.apply') }}">
               <i class="ni ni-planet text-blue"></i> Logout

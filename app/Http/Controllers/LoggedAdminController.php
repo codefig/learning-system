@@ -240,6 +240,5 @@ class LoggedAdminController extends Controller
     {
         $assignments = Assignment::where('course_id', $courseId)->get();
         return view('admin.assignments', compact('assignments'));
-        // return "this iare th esubmissions" . $courseId;
     }
 }

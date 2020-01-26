@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Assignment;
 use App\Course;
 use App\Feedback;
+use App\Grade;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -205,5 +206,11 @@ class LoggedUserController extends Controller
         $assignment->save();
         $request->session()->flash('success', "Assignment submitted successfully");
         return redirect()->back();
+    }
+
+    public function showResults()
+    {
+        $grades = Grade::where('student_id', '=', Auth::id())->get();
+        return view('user.showgrades', compact('grades'));
     }
 }

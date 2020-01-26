@@ -38,6 +38,7 @@ Route::group(['prefix' => 'student'], function () {
     Route::post('/feedback', 'LoggedUserController@postFeedback')->name('user.feedback.post');
     Route::get('/assignment', 'LoggedUserController@showAssignmentPage')->name('user.assignment.get');
     Route::post('/assignment', 'LoggedUserController@postAssignment')->name('user.assignment.post');
+    Route::get('/results', 'LoggedUserController@showResults')->name('user.results.get');
 });
 
 Route::group(['prefix' => 'lecturer'], function () {
