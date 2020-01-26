@@ -41,8 +41,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="../index.html">
-        <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+   <a class="navbar-brand pt-0" href="{{route('user.dashboard')}}">
+        <img src="{{ URL::to('img/oau.png') }}" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -124,47 +124,47 @@
           </div>
         </form>
         <!-- Navigation -->
-         <ul class="navbar-nav">
+            <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link " href="{{ route('admin.addcourse') }}"> <i class="ni ni-tv-2 text-primary"></i> Add Course
+          <a class=" nav-link " href="{{ route('user.dashboard') }}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.addcontent') }}">
-              <i class="ni ni-planet text-blue"></i> Add Course Content
+            <a class="nav-link " href="{{ route('user.courses.all') }}">
+              <i class="ni ni-planet text-blue"></i> View All Courses
             </a>
           </li>
 
-         <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.mycourses') }}">
-              <i class="ni ni-planet text-blue"></i> My Created Courses
+            <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.courses.subscribed') }}">
+              <i class="ni ni-planet text-yellow"></i> View Enrolled Courses
             </a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.feedback.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Give Feedbacks
+            </a>
+          </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.allstudent') }}">
-              <i class="ni ni-pin-3 text-orange"></i> View All Students
+            <a class="nav-link " href="{{ route('user.assignment.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> Submit Assignments
             </a>
           </li>
 
+             <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.results.get') }}">
+              <i class="ni ni-key-25 ni ni-pin-3 text-orange"></i> View Results
+            </a>
+          </li>
 
-                    <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.applications') }}">
-              <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
+            <li class="nav-item">
+            <a class="nav-link " href="{{ route('user.apply') }}">
+              <i class="ni ni-planet text-blue"></i> Logout
             </a>
           </li>
-              <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.logout') }}">
-              <i class="ni ni-single-02 text-orange"></i> Logout
-            </a>
-          </li>
+
         </ul>
-        <!-- Divider -->
-        <hr class="my-3">
-        <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Documentation</h6>
-        <!-- Navigation -->
 
       </div>
     </div>

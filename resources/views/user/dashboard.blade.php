@@ -41,7 +41,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="../index.html">
+      <a class="navbar-brand pt-0" href="{{route('user.dashboard')}}">
         <img src="{{ URL::to('img/oau.png') }}" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
