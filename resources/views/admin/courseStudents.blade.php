@@ -249,6 +249,7 @@
                   <tr>
                     <th scope="col">Registration Number / Email</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Grade</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -267,6 +268,11 @@
                     </th>
                     <td>
                       {{ $student->name }}
+                    </td>
+                    <td>
+                      @foreach($student->gradeByCourse(1) as $grade)
+                            {{ $grade->grade }}
+                      @endforeach
                     </td>
 
                     <td class="text-right">

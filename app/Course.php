@@ -30,4 +30,9 @@ class Course extends Model
     {
         return $this->hasMany('App\Material');
     }
+
+    public function grades()
+    {
+        return $this->hasMany('App\Grades');
+    }
 }

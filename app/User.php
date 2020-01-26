@@ -46,4 +46,15 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Subscription');
     }
+
+    public function gradeByCourse($courseId)
+    {
+        return $this->grades()->where('course_id', '=', $courseId)
+            ->where('student_id', '=', $this->id)->get();
+    }
+
+    public function grades()
+    {
+        return $this->hasMany('App\Grade', 'student_id');
+    }
 }

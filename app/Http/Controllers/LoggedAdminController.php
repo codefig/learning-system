@@ -203,7 +203,7 @@ class LoggedAdminController extends Controller
             }
         }
         return view('admin.courseStudents', compact('subscribed_students', 'courseId'));
-        // return $subscribed_students;
+        return $subscribed_students;
     }
 
     public function gradeStudent(Request $request, $studentId)
