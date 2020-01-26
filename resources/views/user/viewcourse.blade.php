@@ -293,19 +293,21 @@
         @if(count($materials) > 0)
          @foreach ($materials as $material)
 
-                        <div class="card text-right col-lg-4" style="width: 18rem;">
+                        <div class="card text-center col-lg-4" style="width: 18rem;">
                             @if($material->isDocument())
 
-                            <img src="{{ URL::to('img/files.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{ URL::to('img/files.svg')}}"  height="240" class="card-img-top" alt="...">
                             @else
-                            <img src="{{ URL::to('img/video.svg')}}" class="card-img-top" alt="...">
+                            <video height="240" controls>
+                            <source src="{{URL::to('/'.$material->media()) }}" type="video/mp4">
+                            <source src="{{URL::to('/'.$material->media()) }}" type="video/ogg">
+                            </video>
+
                             @endif
                          <div class="card-body">
-
-
                            <h3 class="card-title">{{ $material->title }}</h3>
-                           <strong class="card-text">{{ $material->media }}</strong>
-                           <a href="{{URL::to('/'.$material->media()) }}" class="btn btn-primary">Download Material</a>
+                           <strong class="card-text">{{ $material->shortname() }}</strong>
+                           <a href="{{URL::to('/'.$material->media()) }}" class="btn btn-primary">Download</a>
                            <a href="#" class="btn btn-danger">View Online</a>
                          </div>
                        </div>
