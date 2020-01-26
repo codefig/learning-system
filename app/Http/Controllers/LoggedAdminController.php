@@ -238,7 +238,7 @@ class LoggedAdminController extends Controller
 
     public function viewSubmissions(Request $request, $courseId)
     {
-        $assignments = Assignment::where('id', 1)->get();
+        $assignments = Assignment::where('course_id', $courseId)->get();
         return view('admin.assignments', compact('assignments'));
         // return "this iare th esubmissions" . $courseId;
     }
