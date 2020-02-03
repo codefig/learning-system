@@ -18,7 +18,7 @@ class Authenticate extends Middleware
         // echo "this is the route";
         if (!$request->expectsJson()) {
             if (Auth::guard('admin')) {
-                return 'admin/login';
+                return 'lecturer/login';
             } else {
                 return 'user/login';
             }
