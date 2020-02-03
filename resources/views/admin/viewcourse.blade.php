@@ -402,7 +402,7 @@
         $('#modelId .btn-primary').click(function() {
         console.log("Okay clicked");
         $('#modelId').modal('hide');
-        window.location.href = "https://6496700.vidyocloud.com/join/A5HWGi3iT0";
+        window.location.href=  "{{ URL::to('/lecturer/test', ['courseName' => $title]) }}";
     });
         })
   </script>

@@ -31,6 +31,11 @@
   <link href="{{ URL::to('js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ URL::to('css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" rel="stylesheet" />
+
+
+   <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+
 </head>
 
 <body class="">
@@ -246,6 +251,47 @@
   <!--   Argon JS   -->
   <script src="{{ URL::to('js/argon-dashboard.min.js?v=1.1.0') }}"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('13123ab72d0a38af624f', {
+      cluster: 'eu',
+    });
+
+    var channel = pusher.subscribe('course-created');
+    channel.bind('App\\Events\\CourseCreated', function(data) {
+  iziToast.show({
+    theme: 'dark',
+    icon: 'icon-person',
+    title: 'Hi,' + data.courseName,
+    message: ' has started a live lecture, click to Join!',
+    position: 'topCenter', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+    progressBarColor: 'rgb(0, 255, 184)',
+    buttons: [
+        ['<button>Ok</button>', function (instance, toast) {
+           window.location.href = data.link;
+        }, true], // true to focus
+        ['<button>Close</button>', function (instance, toast) {
+            instance.hide({
+                transitionOut: 'fadeOutUp',
+                onClosing: function(instance, toast, closedBy){
+                    console.info('closedBy: ' + closedBy); // The return will be: 'closedBy: buttonName'
+                }
+            }, toast, 'buttonName');
+        }]
+    ],
+    onOpening: function(instance, toast){
+        console.info('callback abriu!');
+    },
+    onClosing: function(instance, toast, closedBy){
+        console.info('closedBy: ' + closedBy); // tells if it was closed by 'drag' or 'button'
+    }
+});
+    });
+  </script>
 
 </body>
 

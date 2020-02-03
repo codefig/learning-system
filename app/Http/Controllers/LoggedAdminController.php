@@ -14,6 +14,9 @@ use App\Submission;
 use App\Subscription;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Events\CourseCreated;
+use Illuminate\Support\Facades\Redirect;
+use Pusher\Pusher;
 
 class LoggedAdminController extends Controller
 {
@@ -184,7 +187,9 @@ class LoggedAdminController extends Controller
     {
         $course = Course::where('id', $id)->get();
         $materials = Material::where('course_id', $id)->get();
-        return view('admin.viewcourse', compact('course', 'materials'));
+        $title = Course::where('id', $id)->first()->title;
+
+        return view('admin.viewcourse', compact('course', 'materials', 'title'));
     }
 
     public function showStudents(Request $request, $courseId)
@@ -240,5 +245,24 @@ class LoggedAdminController extends Controller
     {
         $assignments = Assignment::where('course_id', $courseId)->get();
         return view('admin.assignments', compact('assignments'));
+    }
+
+    public function liveLectures(Request $request, $courseName)
+    {
+        $options = array(
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $data['courseName'] = $courseName;
+        $data['link'] = "https://6496700.vidyocloud.com/join/A5HWGi3iT0";
+        $pusher->trigger('course-created', 'App\\Events\\CourseCreated', $data);
+        return Redirect::to($data['link']);
     }
 }
