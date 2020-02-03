@@ -152,12 +152,6 @@
             </a>
           </li>
 
-
-                    <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.applications') }}">
-              <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
-            </a>
-          </li>
               <li class="nav-item">
             <a class="nav-link " href="{{ route('admin.logout') }}">
               <i class="ni ni-single-02 text-orange"></i> Logout
