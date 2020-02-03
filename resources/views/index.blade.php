@@ -12,7 +12,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Transcript</title>
+    <title>E-learning</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico" />
@@ -92,9 +92,6 @@
                         <li><a href="{{route('user.login')}}">Login</a></li>
                       </ul>
                     </li>
-
-
-                    <li><a href="{{ route('admin.login') }}">Lecturer Login</a></li>
                   </ul>
                 </div>
                 <!-- Nav End -->
@@ -122,17 +119,17 @@
         <!-- Single Hero Slide -->
         <div
           class="single-hero-slide bg-img"
-          style="background-image: url(img/bg-img/bg-1.jpg);"
+          style="background-image: url(img/graduate.jpg);"
         >
           <div class="container h-100">
             <div class="row h-100 align-items-center">
               <div class="col-12">
                 <div class="hero-slides-content">
                   <h4 data-animation="fadeInUp" data-delay="100ms">
-                    Transcript Processing made easy.
+                    Learning made easy.
                   </h4>
                   <h2 data-animation="fadeInUp" data-delay="400ms">
-                    Welcome to the Obafemi Awolowo University
+                    Welcome to the E-learning platform
                   </h2>
                 </div>
               </div>
@@ -143,14 +140,14 @@
         <!-- Single Hero Slide -->
         <div
           class="single-hero-slide bg-img"
-          style="background-image: url(img/bg-img/bg-2.jpg);"
+          style="background-image: url(img/graduate2.jpg);"
         >
           <div class="container h-100">
             <div class="row h-100 align-items-center">
               <div class="col-12">
                 <div class="hero-slides-content">
                   <h4 data-animation="fadeInUp" data-delay="100ms">
-                    Request for your Transcript
+                    Learn at your own Pace.
                   </h4>
                   <h2 data-animation="fadeInUp" data-delay="400ms">
                     Wherever, Whenever <br />
@@ -178,7 +175,7 @@
                     class="single-top-features d-flex align-items-center justify-content-center"
                   >
                     <i class="icon-agenda-1"></i>
-                    <h5>Prepared Valid Documents</h5>
+                    <h5>Sign up for Interested Courses</h5>
                   </div>
                 </div>
                 <!-- Single Top Features -->
@@ -187,7 +184,7 @@
                     class="single-top-features d-flex align-items-center justify-content-center"
                   >
                     <i class="icon-assistance"></i>
-                    <h5>Amazing Result Officers</h5>
+                    <h5>Follow Course & Download Contents</h5>
                   </div>
                 </div>
                 <!-- Single Top Features -->
@@ -196,7 +193,7 @@
                     class="single-top-features d-flex align-items-center justify-content-center"
                   >
                     <i class="icon-telephone-3"></i>
-                    <h5>Great Support</h5>
+                    <h5>Great Support from Authors and Lecturers</h5>
                   </div>
                 </div>
               </div>
@@ -215,7 +212,7 @@
             <div
               class="cta-content d-flex align-items-center justify-content-between flex-wrap"
             >
-              <h3>Do you want to process your Transcript ?, get in touch</h3>
+              <h3>Do you want to learn without school walls ?, get in touch</h3>
               <a href="#" class="btn academy-btn">See More</a>
             </div>
           </div>
@@ -236,8 +233,7 @@
                   <a href="#"><img src="img/core-img/logo2.png" alt=""/></a>
                 </div>
                 <p>
-                  The Transcript processing department of Obafemi Awolowo
-                  University, Ile-Ife.
+
                 </p>
                 <div class="footer-social-info">
                   <a href="#"><i class="fa fa-facebook"></i></a>
