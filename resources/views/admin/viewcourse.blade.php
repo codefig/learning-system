@@ -132,39 +132,44 @@
           </div>
         </form>
         <!-- Navigation -->
-        <ul class="navbar-nav">
+     <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link " href=" ../index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link " href="{{ route('admin.addcourse') }}"> <i class="ni ni-tv-2 text-primary"></i> Add Course
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
+            <a class="nav-link " href="{{ route('admin.addcontent') }}">
+              <i class="ni ni-planet text-blue"></i> Add Course Content
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="../examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+
+         <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.mycourses') }}">
+              <i class="ni ni-circle-08 text-red"></i> My Created Courses
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link  active " href="../examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
+
+           <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.mycourses') }}">
+              <i class="ni ni-camera-compact text-blue"></i> Start Live Lectures
             </a>
           </li>
+
+
           <li class="nav-item">
-            <a class="nav-link " href="../examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
+            <a class="nav-link " href="{{ route('admin.allstudent') }}">
+              <i class="ni ni-pin-3 text-orange"></i> View All Students
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
+
+                    <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.applications') }}">
+              <i class="ni ni-single-02 text-orange"></i> View Submitted Applications
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
+              <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.logout') }}">
+              <i class="ni ni-single-02 text-orange"></i> Logout
             </a>
           </li>
         </ul>
@@ -268,7 +273,7 @@
                             <div class="col-lg-7 col-md-10">
                                 <h1 class="display-2 text-white">{{ $course->title }}</h1>
                                 <p class="text-white mt-0 mb-5">About : {{ $course->about }}</p>
-                                <a href="#!" class="btn btn-info">Update Course Info</a>
+                                <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modelId">Start Live Lectures</a>
                             </div>
                             </div>
                         </div>
@@ -346,6 +351,36 @@
       </div>
     </div>
   </div>
+
+  <!-- Button trigger modal -->
+  <button >
+    Launch
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+                  <div class="modal-header">
+                          <h5 class="modal-title">Do you want to start a Live Lecture?</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                      </div>
+              <div class="modal-body">
+                  <div class="container-fluid">
+                      Notiifcation will be sent out to students, so they can join live.
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Start</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
   <!--   Core   -->
   <script src="{{ URL::to('js/plugins/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ URL::to('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -353,6 +388,24 @@
   <!--   Argon JS   -->
   <script src="{{ URL::to('js/argon-dashboard.min.js?v=1.1.0') }}"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#exampleModal').on('show.bs.modal', event => {
+                var button = $(event.relatedTarget);
+                var modal = $(this);
+                // Use above variables to manipulate the DOM
+
+            });
+
+        $('#modelId .btn-primary').click(function() {
+        console.log("Okay clicked");
+        $('#modelId').modal('hide');
+        window.location.href = "https://6496700.vidyocloud.com/join/A5HWGi3iT0";
+    });
+        })
+  </script>
 
 </body>
 

@@ -134,7 +134,13 @@
 
          <li class="nav-item">
             <a class="nav-link " href="{{ route('admin.mycourses') }}">
-              <i class="ni ni-planet text-blue"></i> My Created Courses
+              <i class="ni ni-circle-08 text-red"></i> My Created Courses
+            </a>
+          </li>
+
+           <li class="nav-item">
+            <a class="nav-link " href="{{ route('admin.mycourses') }}">
+              <i class="ni ni-camera-compact text-blue"></i> Start Live Lectures
             </a>
           </li>
 
